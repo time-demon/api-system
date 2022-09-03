@@ -1,0 +1,37 @@
+.layui-header {
+  background-color: #fff !important;
+  color: #333;
+}
+
+.layui-header i,
+.layui-header a,
+.layui-header ul {
+  color: #333 !important;
+}
+
+.layui-body {
+  background: #f2f2f2;
+}
+
+.layui-layout-left li {
+  width: 40px;
+  text-align: center;
+}
+
+.layui-nav li i {
+  cursor: pointer;
+}
+
+.layui-nav li i:hover {
+  color: #696;
+}
+
+.layui-table-cell {
+  height: 35px;
+}
+
+.layui-footer {
+  font-size: 12px;
+  height: 35px !important;
+  line-height: 35px !important;
+}

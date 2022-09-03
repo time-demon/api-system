@@ -1,0 +1,257 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img[src=""],
+img:not([src]) {
+    opacity: 0;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.body {
+    background: url(../images/login/background.jpg) no-repeat;
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+}
+
+.layui-container {
+    height: 100%;
+    margin: auto;
+    display: flex;
+    vertical-align: top;
+    align-items: center;
+    justify-content: center;
+}
+
+.centerBox {
+    width: 900px;
+    height: 470px;
+    background: #fff;
+    border-radius: 2px;
+    display: flex;
+    vertical-align: top;
+    justify-content: space-between;
+}
+
+.centerBox-left {
+    width: 50%;
+    height: 100%;
+    padding-top: 60px;
+    position: relative;
+}
+
+.centerBox-right {
+    width: 50%;
+    height: 100%;
+    padding: 40px;
+    position: relative;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 300;
+    padding-left: 60px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 3px;
+    position: relative;
+    z-index: 1;
+}
+
+.title-more {
+    font-size: 14px;
+    color: #8c99aa;
+    padding: 20px 85px 0 80px;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    vertical-align: top;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title-more div {
+    display: inline-block;
+}
+
+.imgBox {
+    width: 100%;
+    height: 310px;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+}
+
+.imgBox img {
+    width: auto;
+    height: 100%;
+}
+
+.formBox {
+    width: 100%;
+    height: 100%;
+}
+
+.formBox-top {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    vertical-align: top;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 10px 0;
+}
+
+.formBox-top-title {
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+.formBox-top-tips {
+    cursor: pointer;
+}
+
+.form {
+    width: 100%;
+    height: auto;
+    display: grid;
+}
+
+.inputBox {
+    width: 100%;
+    height: 45px;
+    background: #E8F0FE;
+    margin: 15px 0;
+    border-radius: 5px;
+    border: 1px solid #e8e8e8;
+    position: relative;
+}
+
+/* .inputBox:hover {
+    box-shadow: 0px 5px 10px #ddd;
+} */
+
+.inputBox input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 0;
+    padding: 0 10px 0 45px;
+    color: #333;
+    letter-spacing: 1px;
+}
+
+.inputBox input:focus {
+    outline: none;
+}
+
+.inputBox label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    vertical-align: top;
+    justify-content: center;
+    align-items: center;
+}
+
+.formGo {
+    background: #409eff;
+    border: 1px solid #409eff;
+    color: #fff;
+}
+
+.formGo input {
+    color: #fff;
+    letter-spacing: 2px;
+    font-size: 18px;
+    padding: 0;
+}
+
+.moreBox {
+    color: #409eff;
+    font-size: 12px;
+    display: flex;
+    vertical-align: top;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.moreBox p a {
+    color: #409eff;
+}
+
+.moreBox p a:hover {
+    color: #333;
+}
+
+.moreBox p {
+    width: 33.333%;
+    text-align: center;
+}
+
+#loginGo {
+    cursor: pointer;
+}
+
+#loginGo:hover {
+    background: #3d8edf;
+}
+
+.ToS {
+    text-align: center;
+    color: #aaa;
+    font-size: 12px;
+    margin: 10px 0;
+}
+
+.ToS a {
+    color: #aaa;
+    font-size: 12px;
+}
+
+.formBox-title {
+    display: none;
+}
+
+@media screen and (max-width: 700px) {
+
+    .formBox-title {
+        display: block;
+        margin: 0 0 15px;
+    }
+
+    .centerBox-left {
+        display: none;
+    }
+
+    .centerBox-right {
+        width: 100%;
+        padding: 20px 40px;
+    }
+
+    .centerBox {
+        display: block;
+        width: auto;
+    }
+
+    .formBox-top-title {
+        font-size: 20px;
+    }
+}

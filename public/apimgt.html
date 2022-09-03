@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Api管理 - 时光API聚合后台管理</title>
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/layui.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./font/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/head.css">
+</head>
+
+<body>
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header ">
+            <div class="layui-logo layui-hide-xs layui-bg-black">时光API聚合管理系统</div>
+            <!-- 头部区域（可配合layui 已有的水平导航） -->
+            <ul class="layui-nav layui-layout-left">
+                <!-- 移动端显示 -->
+
+                <li class="layui-nav-item layui-show-xs-inline-block">
+                    <i class="layui-icon layui-icon-refresh" id="refresh"></i>
+                </li>
+
+                <li class="layui-nav-item layui-show-xs-inline-block layui-hide-sm" lay-header-event="menuLeft">
+                    <i class="layui-icon layui-icon-spread-left"></i>
+                </li>
+
+                <!-- <li class="layui-nav-item layui-hide-xs"><a href="">nav 1</a></li>
+                <li class="layui-nav-item layui-hide-xs"><a href="">nav 2</a></li>
+                <li class="layui-nav-item layui-hide-xs"><a href="">nav 3</a></li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">nav groups</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">menu 11</a></dd>
+                        <dd><a href="">menu 22</a></dd>
+                        <dd><a href="">menu 33</a></dd>
+                    </dl>
+                </li> -->
+            </ul>
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item  layui-show-md-inline-block">
+                    <a href="javascript:;">
+                        <img id="userHeadImg" style="margin-right: 0px;" src="./images/header-logo.png"
+                            class="layui-nav-img">
+                        <font id="userName">验证中...</font>
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a style="cursor: pointer;" class="layui-icon layui-icon-password"> 更改密码</a></dd>
+                        <dd><a style="cursor: pointer;" id="logOut" class="layui-icon layui-icon-logout"> 退出登录</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item" lay-header-event="menuRight" lay-unselect>
+                    <a href="javascript:;">
+                        <i class="layui-icon layui-icon-more-vertical"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="layui-side layui-bg-black layui-hide-xs">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="javascript:;">Api 管理</a>
+                        <dl class="layui-nav-child">
+                            <dd class="layui-this"><a href="javascript:;">Api 列表</a></dd>
+                            <dd><a href="./apiclass.html">分类列表</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">个人管理</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">个人信息</a></dd>
+                            <dd><a href="javascript:;">密码更改</a></dd>
+                        </dl>
+                    </li>
+                    <!-- <li class="layui-nav-item"><a href="javascript:;">click menu item</a></li>
+                    <li class="layui-nav-item"><a href="">the links</a></li>
+                </ul> -->
+            </div>
+        </div>
+
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            <!-- 数据表格 -->
+            <div style="padding: 10px 10px 35px 10px;">
+                <div style="display: flex;">
+                    <div class="layui-form " style="display: flex;" lay-filter="searchForm">
+                        <div style="margin-right: 10px;width: 150px;">
+                            <select name="searchClass" lay-verify="" id="searchClass">
+                                <option value="">请选择查询条件</option>
+                                <option value="name">Api 名称</option>
+                                <option value="url">Api 地址</option>
+                                <option value="method">对接方式</option>
+                            </select>
+                        </div>
+                        <input type="text" name="searchContent" required lay-verify="required" title="请输入查询内容"
+                            placeholder="请输入查询内容" autocomplete="off" class="layui-input"
+                            style="width: 150px;margin-right: 10px;" id="searchContent">
+                        <button type="button" class="layui-btn layui-icon layui-icon-search" style="margin-right: 0;"
+                            id="search"> 查询</button>
+                        <button class="layui-btn layui-btn-primary layui-border-red layui-icon" id="searchReset"
+                            style="margin-right: 10px;">重置</button>
+                    </div>
+                    <button type="button" class="layui-btn layui-btn-normal layui-icon layui-icon-add-1" id="addApi">
+                        添加</button>
+                    <button type="button" class="layui-btn layui-btn-danger layui-icon layui-icon-delete" id="delApi">
+                        删除</button>
+                </div>
+                <table id="demo" lay-filter="apiTable"></table>
+            </div>
+
+            <div class="layui-footer">
+                <!-- 底部固定区域 -->
+                时光API聚合 © copyright 2022 时光工作室. 版权所有
+            </div>
+        </div>
+        <script src="./js/jquery.js"></script>
+        <script src="./layui.js"></script>
+
+        <!-- api状态转换 -->
+        <script type="text/html" id="titleTpl">
+            {{#  if(d.apiState == 1){ }}
+            <div lay-event="test" style="cursor: pointer;">
+                <span class="layui-badge-dot layui-bg-orange"></span> <span style="font-size: 12px;color: orange;">正常</span>
+            </div>
+            
+            <!-- <span class="layui-badge layui-bg-orange" lay-event="test" style="cursor: pointer; c">正常</span> -->
+          {{#  } else if(d.apiState == -1) { }}
+          
+          <div lay-event="test" style="cursor: pointer;">
+            <span class="layui-badge-dot layui-bg-red"></span> <span style="font-size: 12px;color: red;">异常</span>
+        </div>
+          {{#  } 
+          else { }}
+          <span class="layui-badge-rim" lay-event="test" style="cursor: pointer;">待检测</span>
+          {{#  } 
+        }}
+        </script>
+        <!-- api是否前台展示按钮 -->
+        <script type="text/html" id="apiIsSeen">
+            {{#  if(d.isSeen == 1){ }}
+            <i lay-event="testapiIsSeen" class="fa fa-toggle-on" style="cursor: pointer;font-size: 20px;color: #696;"></i>
+          {{#  } 
+          else { }}
+          <i lay-event="testapiIsSeen" class="fa fa-toggle-off" style="cursor: pointer;font-size: 20px;color: #696;"></i>
+          {{#  } 
+        }}
+        </script>
+
+        <!-- api图标 -->
+        <script type="text/html" id="apiImgSeen">
+            {{#  if(d.apiImg){ }}
+            <img src="{{d.apiImg}}" alt="" lay-event="testapiImgSeen" style="width: 35px;cursor: pointer;" id="apiImg" title="点击放大看图标" >
+          {{#  } 
+          else { }}
+          暂无图标
+          {{#  } 
+        }}
+        </script>
+
+        <!-- 表格操作按钮 -->
+        <script type="text/html" id="barOption">
+            <div class="formOperation">
+                <a class="layui-btn layui-btn-sm layui-btn-normal layui-icon layui-icon-form" lay-event="helpDoc" style="background: linear-gradient(to right,#359FD4,#36B5C8,#25D8AB); border: 0;"> 文档</a>
+                <!-- <a class="layui-btn layui-btn-sm layui-btn-normal" lay-event="test">测试</a> -->
+                <a class="layui-btn layui-btn-sm layui-btn-normal layui-icon layui-icon-edit" lay-event="edit"> 编辑</a>
+                <a class="layui-btn layui-btn-sm layui-btn-danger layui-icon layui-icon-delete" lay-event="del"> 删除</a>
+            </div>
+        </script>
+
+        <script src="./js/apimgt.js"></script>
+        <div id="docEdit">
+            <textarea id="demo2" style="display: none;"></textarea>
+        </div>
+        <div style="padding: 20px 40px 0 0;">
+            <form class="layui-form" action="" style="display: none;padding: 20px 40px 0 0;" id="aeApi"
+                lay-filter="aeApi">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">Api名称</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="name" required lay-verify="required" placeholder="必填，如：一言接口"
+                            autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">请求方式</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="method" lay-filter="method" value="GET" title="GET" checked>
+                        <input type="radio" name="method" lay-filter="method" value="POST" title="POST">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">选择分类</label>
+                    <div class="layui-input-block">
+                        <select name="apiClass" lay-verify="required" id="apiClassSelect">
+                            <option value="">点击选择分类</option>
+                            <!-- <option value="随机文案类">随机文案类</option>
+                            <option value="图片壁纸类">图片壁纸类</option>
+                            <option value="视频解析类">视频解析类</option>
+                            <option value="信息查询类">信息查询类</option> -->
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">Api url地址</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="url" required lay-verify="required"
+                            placeholder="必填，如：https://www.baidu.com/s" autocomplete="off" class="layui-input" id="url">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">请求参数</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="parameter" id="parameter" required placeholder="选填，格式：a=1&b=2"
+                            autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">返回码</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="codeCus" required placeholder="选填，比如：200" autocomplete="off"
+                            class="layui-input" id="codeCus">
+                    </div>
+                    <div class="layui-form-mid layui-word-aux" id="testStatus" style="margin: 0;">测试连通性</div>
+                </div>
+                <!-- <div class="layui-form-item">
+                    <label class="layui-form-label">标签</label>
+                    <div class="layui-input-block">
+                        <input type="checkbox" name="label" title="免费" lay-skin="primary" checked>
+                        <input type="checkbox" name="label" title="需第三方注册" lay-skin="primary">
+                    </div>
+                </div> -->
+                <div class="layui-form-item">
+                    <label class="layui-form-label">帮助文档</label>
+                    <div class="layui-input-block">
+                        <div class="layui-input-inline" style="width: auto;">
+                            <button type="button" class="layui-btn layui-btn-primary " id="helpEdit"
+                                style="height: 36px;">
+                                <i class="layui-icon">&#xe642;</i> 编辑
+                            </button>
+                        </div>
+                        <div class="layui-input-inline">
+                            <input type="text" name="docUrl" id="docUrl" required placeholder="选填，官方文档地址"
+                                autocomplete="off" class="layui-input" id="helpEdit">
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">是否可见</label>
+                    <div class="layui-input-inline" style="width: auto;">
+                        <input type="checkbox" name="isSeen" id="isSeen" lay-skin="switch" checked>
+                        <!-- <span style="font-size: 12px; position: relative; top: 4px; left: 5px;">ps：用于前台页面的展示</span> -->
+                    </div>
+                    <button type="button" class="layui-btn layui-btn-sm" id="pImg"
+                        style="position: relative; top: 5px;">
+                        <i class="layui-icon">&#xe67c;</i>上传图标
+                    </button>
+                    <div style="position: relative; display: inline-block; width: 50px; height: 15px;">
+                        <img id="imgEl" name="apiImg" style="position: absolute; height: 40px; left: 10px; top: -5px;">
+                    </div>
+                </div>
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">描述</label>
+                    <div class="layui-input-block">
+                        <textarea name="desc" placeholder="选填" class="layui-textarea"></textarea>
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+</body>
+
+</html>

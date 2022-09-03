@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册 - 时光API聚合</title>
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/register.css">
+    <link rel="stylesheet" href="./css/layui.css">
+</head>
+
+<body>
+    <div class="body">
+        <div class="layui-container">
+            <div class="centerBox">
+
+                <div class="centerBox-right">
+
+                    <div class="formBox">
+
+                        <div class="formBox-top">
+                            <p class="formBox-top-title">欢迎注册</p>
+                            <p class="formBox-top-tips layui-icon layui-icon-return">
+                                <a href="./login.html">返回登陆</a>
+                            </p>
+                        </div>
+
+                        <form action="" class="form layui-form" lay-filter="form">
+                            <div class="inputBox">
+                                <label for="" class="layui-icon layui-icon-username"></label>
+                                <input type="text" name="account" placeholder="必填，万般思绪的账号" required
+                                    lay-verify="required" id="account">
+                            </div>
+                            <div class="inputBox">
+                                <label for="" class="layui-icon layui-icon-password"></label>
+                                <input type="password" name="password" placeholder="必填，独一无二的密码" required
+                                    lay-verify="required" id="password">
+                            </div>
+                            <div class="inputBox">
+                                <label for="" class="layui-icon layui-icon-face-surprised"></label>
+                                <input type="text" name="accountName" placeholder="必填，取个名字吧geigei" required
+                                    lay-verify="required" id="accountName">
+                            </div>
+                            <div class="inputBox">
+                                <label for="" class="layui-icon layui-icon-login-qq"></label>
+                                <input type="text" name="qq" placeholder="QQ" id="qq">
+                            </div>
+                            <div class="inputBox">
+                                <label for="" class="layui-icon layui-icon-email"></label>
+                                <input type="email" name="email" placeholder="邮箱" id="email">
+                            </div>
+                            <div class="inputBox formGo " id="submit">
+                                <input type="submit" lay-submit lay-filter="formDemo" value="立即注册" id="registerGo">
+                            </div>
+                        </form>
+
+                        <div class="ToS">
+                            <p>
+                                <a href="">服务条款</a>
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="./js/jquery.js"></script>
+    <script src="./layui.js"></script>
+    <script src="./js/register.js"></script>
+</body>
+
+</html>

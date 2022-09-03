@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 - 时光API聚合</title>
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/layui.css">
+</head>
+
+<body>
+    <div class="body">
+        <div class="layui-container">
+
+            <div class="centerBox">
+
+                <div class="centerBox-left">
+                    <p class="title">
+                        <img src="./images/logo.png" alt="" style="width: 50px;margin-right: 10px;">
+                        时光&nbsp;<font style="font-size:35px">API</font>&nbsp;聚合
+                    </p>
+                    <div class="title-more">
+                        <div>
+                            <span class="layui-badge-dot layui-bg-cyan"></span>
+                            <span style="font-size: 12px;color:#2F4056;">库共：<font id="allApi"></font></span>
+                        </div>
+                        <div>
+                            <span class="layui-badge-dot layui-bg-orange"></span>
+                            <span style="font-size: 12px;color:orange;">正常<font id="normalApi"></font></span>
+                        </div>
+                        <div>
+                            <span class="layui-badge-dot layui-bg-red"></span>
+                            <span style="font-size: 12px;color:red;">异常：<font id="abnormalApi"></font></span>
+                        </div>
+                        <div>
+                            <span class="layui-badge-dot layui-bg-green"></span>
+                            <span style="font-size: 12px;color:green;">未检测：<font id="otherApi"></font></span>
+                        </div>
+                    </div>
+                    <div class="imgBox">
+                        <img lay-src="./images/login/img.gif" alt="图片">
+                    </div>
+                </div>
+
+                <div class="centerBox-right">
+
+                    <div class="formBox">
+
+                        <div class="formBox-title">
+                            <h2>
+                                <img src="./images/logo.png" alt="" style="width: 50px;"> 时光API聚合
+                            </h2>
+                        </div>
+
+                        <div class="formBox-top">
+                            <p class="formBox-top-title">管理后台登录</p>
+                            <p class="formBox-top-tips layui-icon layui-icon-tips" id="tips">
+                            </p>
+                        </div>
+
+                        <div action="" class="form">
+                            <div class="inputBox">
+                                <label for="" class="layui-icon layui-icon-username"></label>
+                                <input type="text" placeholder="账号" id="account">
+                            </div>
+                            <div class="inputBox" id="pwdBox">
+                                <label for="" class="layui-icon layui-icon-password"></label>
+                                <input type="password" placeholder="密码" id="password">
+                            </div>
+                            <div class="moreBox">
+                                <p style="text-align: left;">
+                                    <a href="">忘记密码？</a>
+                                </p>
+                                <p>
+                                    <a href="">忘记账号？</a>
+                                </p>
+                                <p style="text-align: right;">
+                                    <a href="./register.html">新用户注册</a>
+                                </p>
+                            </div>
+                            <div class="inputBox formGo" id="submit">
+                                <input type="submit" value="登录" id="loginGo">
+                            </div>
+
+                            <div class="ToS">
+                                <p>
+                                    <a href="">· 服务条款</a>
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="./js/jquery.js"></script>
+    <script src="./layui.js"></script>
+    <script src="./js/login.js"></script>
+</body>
+
+</html>

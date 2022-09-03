@@ -1,0 +1,37 @@
+.bigBox {
+  margin: 10px 0;
+  display: grid;
+  grid-template-columns: 32% 32% 32%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.bigBox .layui-card {
+  width: 100%;
+  height: max-content;
+  margin: 10px 0;
+  position: relative;
+}
+
+.layui-card-header {
+  position: relative;
+}
+#onOff {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 25px;
+  color: #696;
+  cursor: pointer;
+}
+
+.apiArrC {
+  font-size: 14px;
+  height: 35px;
+  border-top: 1px solid #eee;
+  line-height: 35px;
+  padding: 0 0 0 25px;
+  letter-spacing: 1px;
+  color: #696;
+  font-weight: bold;
+}
